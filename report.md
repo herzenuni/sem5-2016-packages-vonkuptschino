@@ -1,5 +1,6 @@
-#URL Hook starter pack:
-```import re
+# URL Hook starter pack:
+```python
+import re
 import sys
 from urllib.request import urlopen
 from importlib.abc import PathEntryFinder
@@ -43,3 +44,16 @@ class URLFinder(PathEntryFinder):
         
         else:
             return None```
+Then add:
+```python
+sys.path.append("http://localhost:8000")
+
+import remotePack #goes from remotePackIsHere/remotePack.py
+fun() 
+```
+## Set up our server:
+```console
+cd cleinFileIsHere
+python3 -m http.server
+python3 -i remoteURL.py
+```
