@@ -10,13 +10,13 @@ from urllib.request import urlopen
 def url_hook(some_str):
     """ С помощью этой функции мы перехватываем ситуацию, в которой то,
     что мы собираемся импортировать является URL-адресом"""
-    if not some_str.startswith(("http", "https")):
+    if not some_str.startswith(("http", "https")):                  #some fixed bugs here
         raise ImportError
     with urlopen(some_str) as page:
         data = page.read().decode("utf-8")
     filenames = re.findall("[a-zA-Z_][a-zA-Z0-0_]*.py", data)
     modnames = {name[:-3] for name in filenames}
-    return URLFinder(some_str, modnames)
+    return URLFinder(some_str, modnames)                            #and here
 
 sys.path_hooks.append(url_hook)
 print(sys.path_hooks)
@@ -58,5 +58,5 @@ cd cleinFileIsHere
 python3 -m http.server
 python3 -i remoteURL.py
 ```
-Cool!
 ![It works](final.png)
+Cool!
