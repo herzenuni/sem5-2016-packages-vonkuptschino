@@ -1,5 +1,5 @@
 import requests #made with my fav lib
-
+ 
 url = 'https://www.python.org/static/img/python-logo.png'
 fileName = '/Users/vonkuptschino/Desktop/УЧЁБИЩЕ/2 курс/pythonist wannabe/5sem/PythonLogo.png'
 req = requests.get(url)
